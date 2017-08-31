@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>任务一：表单（一）单个表单项的检验</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        form {
+            width: 500px;
+            margin: 10em auto;
+            font-family: "SimHei";
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        #text {
+            margin-left: 20px;
+            margin-right: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            width: 300px;
+            height: 25px;
+
+        }
+        #btn {
+            border: none;
+            border-radius: 5px;
+            width: 80px;
+            height: 28px;
+            background-color: #0080FF;
+            font-size: 18px;
+            color: #fff;
+        }
+        form p {
+            margin-left: 50px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><p>在页面中实现一个输入框与按钮，要求点击验证按钮后，对输入框中内容进行格式校验，并在其下方显示校验结果</p></li>
+        <li>
+        <p>校检规则</p>
+            <ol>
+                <li>字符数为4~16位</li>
+                <li>每个英文字母、数字、英文符号长度为1</li>
+                <li>每个汉字，中文符号长度为2</li>
+            </ol>
+        </li>
+    </ul>
+    <form id="form1">
+        名称<input id="text" type="text">
+        <input id="btn" type="submit" value="验证">
+        <p id="prompt">必填，长度为4~16个字符</p>
+    </form>
+    <script src="event.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var form1 = document.forms[0];
+        var prompt = document.getElementById("prompt");
+        // 验证表单
+        function test() {
+            var text = form1.elements[0];
+            if (text.value) {
+                // 将字符串中的中文替换为两个任意英文字符，然后获得字符串长度。
+                var len = text.value.replace(/[^x00-xff]/g, "aa").length;
+                if (len <= 16 && len >= 4) {
+                    prompt.innerText = "名称格式正确。";
+                    text.style.borderColor = "green";
+                    stopSubmit();
+                } else {
+                    prompt.innerText = "长度为4~16个字符。";
+                    text.style.borderColor = "red";
+                    stopSubmit();
+                }
+            } else {
+                prompt.innerText = "姓名不能为空。";
+                text.style.borderColor = "red";
+                stopSubmit();
+            }
+        }
+        //阻止表单提交
+        function stopSubmit() {
+            event = EventUtil.getEvent(event);
+            EventUtil.preventDefault(event);
+        }
+        EventUtil.addHandler(form1, "submit", test);
+    </script>
+</body>
+</html>
