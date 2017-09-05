@@ -2,6 +2,43 @@
 <html>
 <head>
     <title>任务二：表单（二）多个表单项的动态校验</title>
+    <style type="text/css">
+        td {
+            text-align: right;
+        }
+        .notice {
+            display: none;
+            text-align: left;
+            color: #aaa;
+            font-size: 16px;
+        }
+        form {
+            width: 700px;
+            margin: 1em auto;
+        }
+        form label {
+            margin-right: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .input {
+            width: 600px;
+            height: 30px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .btn {
+            float: right;
+            height: 40px;
+            width: 70px;
+            background-color: #0080FF;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <ul>
@@ -16,6 +53,221 @@
             </ul>
         </li>
     </ul>
-    <form></form>
+
+    <form>
+        <table>
+        <tr>
+            <td><label>名称</label></td><td><input id="name" class="input" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="notice">必填，长度为4~16个字符</td>
+        </tr>
+        <tr>
+            <td><label>密码</label></td><td><input id="password" class="input" type="password"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="notice">请输入密码,长度为6~16个字符</td>
+        </tr>
+        <tr>
+            <td><label>密码确认</label></td><td><input id="password2" class="input" type="password"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="notice">再次输入相同的密码</td>
+        </tr>
+        <tr>
+            <td><label>邮箱</label></td><td><input id="email" class="input" type="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="notice">请输入邮箱</td>
+        </tr>
+        <tr>
+            <td><label>手机</label></td><td><input id="tel" class="input" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="notice">请输入手机号码</td>
+        </tr>
+        </table>
+        <button class="btn" type="submit">提交</button>
+    </form>
+    <script type="text/javascript" src="event.js"></script>
+    <script type="text/javascript">
+        var firstForm = document.forms[0];
+        var name = firstForm.elements[0];
+        var password = firstForm.elements[1];
+        var password2 = firstForm.elements[2];
+        var email = firstForm.elements[3];
+        var tel = firstForm.elements[4];
+        var notice = document.getElementsByClassName("notice");
+        // var btn = document.getElementsByClassName("btn")[0];
+        function showPrompt(event) {
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getEvent(event);
+            switch(event.currentTarget.id) {
+                case "name":    notice[0].style.display = "inline";
+                                notice[0].innerText = "必填，长度为4~16个字符";
+                                break;
+                case "password": notice[1].style.display = "inline";
+                                notice[1].innerText = "请输入密码,长度为6~16个字符";
+                                break;
+                case "password2": notice[2].style.display = "inline";
+                                notice[2].innerText = "再次输入相同的密码";
+                                break;
+                case "email":   notice[3].style.display = "inline";
+                                notice[3].innerText = "请输入邮箱";
+                                break;
+                case "tel":     notice[4].style.display = "inline";
+                                notice[4].innerText = "请输入手机号码";
+                                break;
+            }
+        }
+        
+        function checkName() {
+            var name = firstForm.elements[0];
+            var len = name.value.replace(/[^x00-xff]/g, "aa").length;
+            if (len) {
+                if (len <= 16 && len >= 4) {
+                    notice[0].innerText = "名称可用";
+                    notice[0].style.color = "green" ;
+                    name.style.borderColor = "green";
+                    return true;
+                } else {
+                    notice[0].innerText = "名称不符合规则";
+                    notice[0].style.color = "red" ;
+                    name.style.borderColor = "red";
+                }
+            } else {
+                notice[0].innerText = "名称不可为空";
+                notice[0].style.color = "red" ;
+                name.style.borderColor = "red";
+            }
+        }
+
+        function checkPassword() {
+            var password = firstForm.elements[1];
+            var len = password.value.length;
+            if (len) {
+                if (len <= 16 && len >= 6) {
+                    notice[1].innerText = "密码可用";
+                    notice[1].style.color = "green" ;
+                    password.style.borderColor = "green";
+                    return true;
+                } else {
+                    notice[1].innerText = "密码不符合规则";
+                    notice[1].style.color = "red" ;
+                    password.style.borderColor = "red";
+                }
+            } else {
+                notice[1].innerText = "密码不可为空";
+                notice[1].style.color = "red" ;
+                password.style.borderColor = "red";
+            }
+        }
+
+        function checkPassword2() {
+            var password2 = firstForm.elements[2];
+            var content = firstForm.elements[1].value;
+            var content2 = firstForm.elements[2].value;
+            if (content2.length) {
+                if (content === content2) {
+                    notice[2].innerText = "密码输入一致";
+                    notice[2].style.color = "green" ;
+                    password2.style.borderColor = "green";
+                    return true;
+                } else {
+                    notice[2].innerText = "两次输入密码不一致";
+                    notice[2].style.color = "red" ;
+                    password2.style.borderColor = "red";
+                }
+            } else {
+                notice[2].innerText = "密码不可为空";
+                notice[2].style.color = "red" ;
+                password2.style.borderColor = "red";
+            }
+        }
+
+        function checkEmail() {
+            var email = firstForm.elements[3];
+            // 邮箱过滤规则
+            var rule= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if (email.value.length) {
+                if (rule.test(email.value)) {
+                    notice[3].innerText = "邮箱可用";
+                    notice[3].style.color = "green" ;
+                    email.style.borderColor = "green";
+                    return true;
+                } else {
+                    notice[3].innerText = "邮箱格式错误";
+                    notice[3].style.color = "red" ;
+                    email.style.borderColor = "red";
+                }
+            } else {
+                notice[3].innerText = "邮箱不可为空";
+                notice[3].style.color = "red" ;
+                email.style.borderColor = "red";
+            }
+        }
+
+        function checkTel() {
+            var tel = firstForm.elements[4];
+            var rule = /^1[3|4|5|7|8][0-9]{9}$/;
+            if (tel.value.length) {
+                if (rule.test(tel.value)) {
+                    notice[4].innerText = "手机号码可用";
+                    notice[4].style.color = "green" ;
+                    tel.style.borderColor = "green";
+                    return true;
+                } else {
+                    notice[4].innerText = "手机号码格式错误";
+                    notice[4].style.color = "red" ;
+                    tel.style.borderColor = "red";
+                }
+            } else {
+                notice[4].innerText = "手机号码不可为空";
+                notice[4].style.color = "red" ;
+                tel.style.borderColor = "red";
+            }
+        }
+        function checkForm(event) {
+            var count = 0;
+            if (checkName()) {
+                count++;
+                if (checkPassword()) {
+                    count++;
+                    if (checkPassword2()) {
+                        count++;
+                        if (checkEmail()) {
+                            count++;
+                            if (checkTel()) {
+                                count++;
+                            }
+                        }
+                    }
+                }
+            }
+            if (count !== 5) {
+                event = EventUtil.getEvent(event);
+                EventUtil.preventDefault(event);
+                alert("验证失败");
+            } else {
+                alert("验证通过");
+            }
+        }
+        // 遍历输入框，为其添加focus事件
+        for (var i = firstForm.length - 2; i >= 0; i--) {
+            EventUtil.addHandler(firstForm[i], "focus", showPrompt);
+            
+        }
+            EventUtil.addHandler(firstForm[0], "blur", checkName);
+            EventUtil.addHandler(firstForm[1], "blur", checkPassword);
+            EventUtil.addHandler(firstForm[2], "blur", checkPassword2);
+            EventUtil.addHandler(firstForm[3], "blur", checkEmail);
+            EventUtil.addHandler(firstForm[4], "blur", checkTel);
+            EventUtil.addHandler(firstForm, "submit", checkForm);
+    </script>
 </body>
 </html>
