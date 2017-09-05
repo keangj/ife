@@ -129,8 +129,9 @@
         function checkName() {
             var name = firstForm.elements[0];
             var len = name.value.replace(/[^x00-xff]/g, "aa").length;
+            var rule = /\s/;
             if (len) {
-                if (len <= 16 && len >= 4) {
+                if (len <= 16 && len >= 4 && !rule.test(name.value)) {
                     notice[0].innerText = "名称可用";
                     notice[0].style.color = "green" ;
                     name.style.borderColor = "green";
@@ -150,8 +151,9 @@
         function checkPassword() {
             var password = firstForm.elements[1];
             var len = password.value.length;
+            var rule = /\s/;
             if (len) {
-                if (len <= 16 && len >= 6) {
+                if (len <= 16 && len >= 6 && !rule.test(password.value)) {
                     notice[1].innerText = "密码可用";
                     notice[1].style.color = "green" ;
                     password.style.borderColor = "green";
@@ -236,25 +238,28 @@
             var count = 0;
             if (checkName()) {
                 count++;
-                if (checkPassword()) {
-                    count++;
-                    if (checkPassword2()) {
-                        count++;
-                        if (checkEmail()) {
-                            count++;
-                            if (checkTel()) {
-                                count++;
-                            }
-                        }
-                    }
-                }
+            }
+            if (checkPassword()) {
+                count++;
+            }
+            if (checkPassword2()) {
+                count++;
+            }
+            if (checkEmail()) {
+                count++;
+            }
+            if (checkTel()) {
+                count++;
+            }
+            for (var i = 0; i < notice.length; i++) {
+                notice[i].style.display = "inline";
             }
             if (count !== 5) {
                 event = EventUtil.getEvent(event);
                 EventUtil.preventDefault(event);
-                alert("验证失败");
+                alert("提交失败");
             } else {
-                alert("验证通过");
+                alert("提交成功");
             }
         }
         // 遍历输入框，为其添加focus事件
