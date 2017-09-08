@@ -108,21 +108,26 @@
             event = EventUtil.getEvent(event);
             var target = EventUtil.getEvent(event);
             switch(event.currentTarget.id) {
-                case "name":    notice[0].style.display = "inline";
-                                notice[0].innerText = "必填，长度为4~16个字符";
-                                break;
-                case "password": notice[1].style.display = "inline";
-                                notice[1].innerText = "请输入密码,长度为6~16个字符";
-                                break;
-                case "password2": notice[2].style.display = "inline";
-                                notice[2].innerText = "再次输入相同的密码";
-                                break;
-                case "email":   notice[3].style.display = "inline";
-                                notice[3].innerText = "请输入邮箱";
-                                break;
-                case "tel":     notice[4].style.display = "inline";
-                                notice[4].innerText = "请输入手机号码";
-                                break;
+                case "name":
+                    notice[0].style.display = "inline";
+                    notice[0].innerText = "必填，长度为4~16个字符";
+                    break;
+                case "password":
+                    notice[1].style.display = "inline";
+                    notice[1].innerText = "请输入密码,长度为6~16个字符";
+                    break;
+                case "password2":
+                    notice[2].style.display = "inline";
+                    notice[2].innerText = "再次输入相同的密码";
+                    break;
+                case "email":
+                    notice[3].style.display = "inline";
+                    notice[3].innerText = "请输入邮箱";
+                    break;
+                case "tel":
+                    notice[4].style.display = "inline";
+                    notice[4].innerText = "请输入手机号码";
+                    break;
             }
         }
         
