@@ -72,7 +72,7 @@
  2.个英文字母、数字、英文符号长度为1
  3.个汉字，中文符号长度为2
 
-##### 表单（二）多个表单项的动态校验](https://keangj.github.io/ife/yaoyao/task02/index.html)
+##### [表单（二）多个表单项的动态校验](https://keangj.github.io/ife/yaoyao/task02/index.html)
 * 上一个任务，在页面中添加多个表单
 
 * 要求:
