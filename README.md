@@ -22,6 +22,7 @@
 * 在Chrome中完美实现与设计稿的各项字体、布局、内外边距等样式
 
 ##### [使用HTML/CSS实现一个复杂页面](https://keangj.github.io/ife/xiaowei/task09/index.html)
+* 纯CSS实现tab切换
 * 通过HTML及CSS实现设计稿 设计稿PSD文件，效果如 [效果图](https://github.com/keangj/ife/blob/master/xiaowei/task09/images/task.jpg)
 * 整个页面内容宽度固定，但头部的蓝色导航和浏览器宽度保持一致
 
