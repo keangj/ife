@@ -6,7 +6,7 @@
 
 
 ##### [瀑布流](https://keangj.github.io/waterfall)  https://github.com/keangj/waterfall
-##### [定位导航](https://keangj.github.io/navigation/定位导航/)  https://github.com/keangj/navigation
+##### [定位导航](https://keangj.github.io/navigation/定位导航/)  https://github.com/keangj/navigation/tree/master/%E5%AE%9A%E4%BD%8D%E5%AF%BC%E8%88%AA
 
 #### 小薇学院
 
