@@ -9,7 +9,7 @@
     height: 3px;
     width: 35px;
     transition: width .5s;
-    -webkit-transi tion: width.5s;
+    -webkit-transition: width.5s;
     background-color: #fff;
 }
 .wrap2 h3:hover~ span{
@@ -41,7 +41,6 @@
     width: 100%;
     background-color: #000;
     opacity: .2;
-    z-index: 0;
 }
 .shade2 {
     background-color: red;
@@ -55,7 +54,7 @@
 }
 .font1 {
     font-size: 60px;
-    font-weight: 400; 
+    font-weight: 400;
 }
 .font2 {
     margin-top: 15px;
@@ -82,7 +81,7 @@
 /* header */
 body {
     min-width: 1200px;
-    
+
 }
 header {
     margin: 2px 0;
@@ -286,17 +285,17 @@ nav ul li a:hover {
 /* 三角 */
 .triangle-l {
     margin-top: 285px;
-    border-top: 15px solid transparent; 
-    border-right: 30px solid #fff; 
+    border-top: 15px solid transparent;
+    border-right: 30px solid #fff;
     border-bottom: 15px solid transparent;
 }
 .triangle-r {
     position: absolute;
     margin-top: 255px;
-    border-top: 15px solid transparent; 
-    border-left: 30px solid #fff; 
+    border-top: 15px solid transparent;
+    border-left: 30px solid #fff;
     border-bottom: 15px solid transparent;
-    z-index: 10;
+
 }
 
 #about .about-l {
@@ -376,7 +375,7 @@ nav ul li a:hover {
 }
 #about2 .about2-r{
     float: right;
-    position: absolute;
+    position: relative;
     right: 0;
     width: 34%;
     height: 550px;
@@ -411,11 +410,11 @@ nav ul li a:hover {
     width: 100%;
 }
 #join .up {
-    text-align: center; 
+    text-align: center;
     height: 200px;
 }
 #join .up h3 {
-    margin-top: 100px; 
+    margin-top: 100px;
 }
 .up span {
     height: 3px;
