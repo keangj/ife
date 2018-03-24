@@ -1,12 +1,12 @@
 #### 点击标题查看预览
 
 ##### [ToDo list](https://keangj.github.io/demo/ToDo/index.html) 
-https://github.com/keangj/demo/tree/master/ToDo
-jquery.js+store.js实现的todo list可以添加删除修改并存储todo项的信息
+https://github.com/keangj/demo/tree/master/ToDo  
+- jquery.js+store.js实现的todo list可以添加删除修改并存储todo项的信息
 
 ##### [Tabs](https://keangj.github.io/demo/Tabs/index.html) 
-https://github.com/keangj/demo/tree/master/Tabs
-可复用的tabs
+https://github.com/keangj/demo/tree/master/Tabs  
+* 可复用的tabs
 
 ##### [瀑布流](https://keangj.github.io/waterfall)  
 https://github.com/keangj/waterfall
