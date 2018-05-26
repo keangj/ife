@@ -3,7 +3,7 @@
 ##### [vue云笔记](https://keangj.github.io/vue-evernote-demo/index.html#/)
 https://github.com/keangj/vue-evernote
 - 技术栈 vue + vue-router + vuex + axios + element-ui
-实现了云笔记登陆注册、笔记本的添加编辑删除、笔记的创建编辑移动到回收站及markdown预览、回收站的还原和彻底删除笔记等功能
+- 实现了云笔记登陆注册、笔记本的添加编辑删除、笔记的创建编辑移动到回收站及markdown预览、回收站的还原和彻底删除笔记等功能
 
 
 ##### [ToDo list](https://keangj.github.io/demo/ToDo/index.html) 
